@@ -3,13 +3,13 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Home from './components/Home'
-
+import ProfilePanel from './components/ProfilePanel'
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
   <div className='w-full h-screen'>
     <Home/>
+    {/* <ProfilePanel/> */}
   </div>
   )
 }
