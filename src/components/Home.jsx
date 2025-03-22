@@ -3,13 +3,14 @@ import avtar from "../assets/avtar.jpg";
 import { FaArrowRight } from "react-icons/fa";
 import Confetti from "react-confetti";
 import { motion, AnimatePresence } from "framer-motion";
-import molog from "../assets/projectAssets/molog.png";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import { SlCalender } from "react-icons/sl";
 import { FaGithub } from "react-icons/fa";
 import { projects } from "../data/projects";
 import { CiLinkedin } from "react-icons/ci";
+import { skills } from "../data/projects";
+import resume from '../assets/Himanshu_3y_Fullstack.pdf'
 function Home() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [userName, setUserName] = useState("");
@@ -20,6 +21,7 @@ function Home() {
   const [projectSidebar, setProjectSidebar] = useState(false);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
   const [showProfilePanel, setShowProfilePanel] = useState(false);
+  const [skillsPanel, setskillsPanel] = useState(false);
   const [project] = useState(projects);
 
   const profilePanelVariants = {
@@ -346,7 +348,7 @@ function Home() {
                       },
                     }}
                     whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-                    className="h-48 bg-[#f5a524] rounded-lg p-8 shadow-lg"
+                    className="h-48 cursor-pointer bg-[#f5a524] rounded-lg p-8 shadow-lg"
                   >
                     <motion.p
                       whileInView={motionSettings}
@@ -362,6 +364,7 @@ function Home() {
                     </motion.p>
                   </motion.div>
                   <motion.div
+                    onClick={() => setskillsPanel(true)}
                     whileInView={{
                       y: [-50, 0],
                       transition: {
@@ -369,7 +372,7 @@ function Home() {
                       },
                     }}
                     whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-                    className="h-48 bg-[#17c964] rounded-lg p-8 shadow-lg"
+                    className="h-48 cursor-pointer bg-[#17c964] rounded-lg p-8 shadow-lg"
                   >
                     <motion.p
                       whileInView={motionSettings}
@@ -435,6 +438,7 @@ function Home() {
                   className="h-[20rem] flex flex-col justify-between text-center rounded-lg bg-[#18181B] p-8 shadow-lg"
                 >
                   <motion.p
+                  
                     whileInView={motionSettings}
                     className="font-semibold text-lg"
                   >
@@ -442,10 +446,13 @@ function Home() {
                   </motion.p>
                   <div className="flex justify-center gap-4">
                     <motion.img
+                    onClick={() =>
+                      window.open('https://github.com/DevHimanshu63')
+                    }
                       whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
                       className="w-24 cursor-pointer"
-                      src="https://tadashiamano.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fsignal.png&w=384&q=75"
-                      alt="signal"
+                      src="https://img.icons8.com/ios11/512/FFFFFF/github.png"
+                      alt="github"
                     />
                     <motion.img
                       whileHover={{
@@ -453,9 +460,12 @@ function Home() {
                         rotate: 90,
                         transition: { duration: 0.6 },
                       }}
-                      className="w-24 cursor-pointer"
-                      src="https://tadashiamano.vercel.app/_next/image?url=%2Fassets%2Fimages%2Ftelegram.png&w=384&q=75"
-                      alt="telegram"
+                      onClick={() =>
+                        window.open('https://www.linkedin.com/in/himanshu-chauhan-bb6a671b2/')
+                      }
+                      className="w-24 cursor-pointer rounded-lg"
+                      src="https://static.vecteezy.com/system/resources/previews/016/716/470/non_2x/linkedin-icon-free-png.png"
+                      alt="linkedin"
                     />
                   </div>
                   <div className="flex justify-center gap-4">
@@ -465,6 +475,7 @@ function Home() {
                         rotate: 90,
                         transition: { duration: 0.6 },
                       }}
+                      onClick={() => window.open("https://wa.me/6307279736", "_blank")}
                       className="w-24 cursor-pointer"
                       src="https://tadashiamano.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fwhatsapp.png&w=384&q=75"
                       alt="whatsapp"
@@ -698,6 +709,67 @@ function Home() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* skills panel*/}
+      {skillsPanel && (
+        <div className="skills-panel font-montserrat flex justify-center items-center w-full h-full bg-black/50 backdrop-blur-md absolute top-0 left-0">
+          <motion.div
+            whileInView={{
+              y: [-40, 0],
+              transition: {
+                duration: 1,
+              },
+            }}
+            className="w-[40%] h-[60%] bg-gray-800 p-8 rounded-lg"
+          >
+            <motion.div 
+            whileInView={{
+              y: [-20, 0],
+              transition: {
+                duration: 1,
+              },
+            }}
+            className="flex justify-between items-center">
+              <h2 className="text-white text-2xl ">Skill set</h2>
+              <button
+                onClick={() => setskillsPanel(false)}
+                className="float-right text-lg text-white"
+              >
+                X
+              </button>
+            </motion.div>
+
+            <div className="skills-list mt-5 w-full h-full p-5">
+              <div className="w-full h-full p-2 flex flex-wrap gap-5">
+                {skills.map((skill, index) => (
+                  <motion.div
+                  whileInView={{
+                    y: [-40, 0],
+                    transition: {
+                      duration: 1,
+                    },
+                  }}
+                    key={index}
+                    className="flex flex-col items-center relative"
+                  >
+                    <p className="bg-[#9353d3] text-white p-1 rounded-full absolute -top-2 -right-2 text-xs font-bold">
+                      {skill.exp}
+                    </p>
+                    <img
+                      className="w-12 h-12"
+                      src={skill.img}
+                      alt={skill.name}
+                    />
+                    <span className="text-white text-lg mt-2">
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 }
