@@ -314,26 +314,15 @@ function Home() {
                   >
                     <motion.p
                       whileInView={motionSettings}
-                      className="font-semibold text-sm"
+                      className="font-normal text-sm text-justify"
                     >
-                      As a Frontend Engineer with a B.TECH degree in Computer
-                      Science, I have a strong background in web development,
-                      digital signage, and software project management. I am
-                      passionate about delivering seamless digital experiences
-                      and staying updated with the latest tech trends. In my
-                      most recent role at MOLOG, a leading digital signage
-                      software company, I worked on screen connectivity, content
-                      management, and playlist creation features, using HTML,
-                      CSS, JavaScript, ReactJS, AWS, Github, Framer motion, and
-                      Gsap Animation. I contributed to the development and
-                      deployment of multiple projects for clients across various
-                      industries, ensuring high-quality and user-friendly
-                      outcomes. I also collaborated with other engineers,
-                      designers, and stakeholders, applying agile and scrum
-                      methodologies. I am eager to leverage my skills and
-                      expertise in new and challenging opportunities in the
-                      dynamic world of digital signage and web development.
-                      Let's connect and explore how we can work together!
+                      I am a passionate Full Stack Developer with over 2 years of experience in both front-end and back-end development. I specialize in technologies like HTML, CSS, JavaScript, ReactJS, Node.js, and SQL/NoSQL databases. I build responsive, dynamic user interfaces with ReactJS and create scalable, efficient server-side applications using Node.js and Express.
+
+I have strong experience in developing RESTful APIs, implementing authentication, and working with cloud services (AWS) to ensure performance, security, and scalability. I’m dedicated to delivering high-performance applications while following best practices and maintaining clean, maintainable code.
+
+I thrive in collaborative environments, working closely with cross-functional teams to deliver user-centric solutions. With a focus on continuous learning and staying up to date with the latest technologies, I’m always eager to tackle new challenges in web development.
+
+
                     </motion.p>
                   </motion.div>
                 </div>
@@ -384,7 +373,7 @@ function Home() {
                       whileInView={motionSettings}
                       className="text-center font-semibold text-7xl mt-2"
                     >
-                      22
+                      13+
                     </motion.p>
                   </motion.div>
                 </div>
@@ -567,7 +556,7 @@ function Home() {
                 <h3 className="font-semibold text-white text-lg">
                   About the project
                 </h3>
-                <p className="font-normal text-gray-500 text-md mt-5">
+                <p className="font-normal text-justify tracking-normal hyphens-auto text-gray-500 text-md mt-5">
                   {projects[currentProjectIndex].about}
                 </p>
               </div>
