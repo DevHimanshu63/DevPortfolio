@@ -266,9 +266,16 @@ export const skills = [
   },
   {
     id: 11,
-    name: "Tailwind Css",
+    name: "Tailwind",
     img: "https://play-lh.googleusercontent.com/YN4OEsoWsU1QrZFcwWlI8uuGhDKc4RAlP56FFyL03VFegD5tWjZ5cNWHocC_QRE_TvA",
     exp: "3y",
   },
+  {
+    id: 12,
+    name: "SocketIo",
+    img: "https://static-00.iconduck.com/assets.00/socket-io-icon-512x511-xjp7kzx6.png",
+    exp: "2y",
+  },
+  
   
 ];

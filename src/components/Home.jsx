@@ -10,7 +10,7 @@ import { FaGithub } from "react-icons/fa";
 import { projects } from "../data/projects";
 import { CiLinkedin } from "react-icons/ci";
 import { skills } from "../data/projects";
-import resume from '../assets/Himanshu_3y_Fullstack.pdf'
+import resume from "../assets/Himanshu_3y_Fullstack.pdf";
 function Home() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [userName, setUserName] = useState("");
@@ -87,16 +87,20 @@ function Home() {
   };
 
   return (
-    <div className="w-full h-screen flex items-center justify-center">
+    <div className="w-full h-auto lg:h-screen flex items-center justify-center">
       {/* First Screen */}
       {firstScreen && (
         <div
           onClick={() => setopenPopbox(true)}
-          className='w-full h-full bg-[url("https://tadashiamano.vercel.app/assets/images/login.jpg")] bg-cover bg-center'
+          className='w-full h-screen bg-[url("https://tadashiamano.vercel.app/assets/images/login.jpg")] bg-cover bg-center'
         >
-          <div className="timing-box font-montserrat absolute bottom-24 left-16 text-white">
-            <p className="text-8xl font-extrabold">{formatTime(currentTime)}</p>
-            <p className="text-4xl font-normal">{formatDate(currentTime)}</p>
+          <div className="timing-box font-montserrat absolute bottom-24 left-5 md:left-16 text-white">
+            <p className="text-5xl md:text-8xl font-extrabold">
+              {formatTime(currentTime)}
+            </p>
+            <p className="text-3xl md:text-4xl font-normal">
+              {formatDate(currentTime)}
+            </p>
           </div>
         </div>
       )}
@@ -130,7 +134,7 @@ function Home() {
 
       {/* Third Screen */}
       {thirdScreen && (
-        <div className="w-full font-montserrat h-full flex items-center bg-black justify-center absolute top-0 left-0">
+        <div className="w-full font-montserrat h-full flex items-center bg-black justify-center absolute top-0 left-0 p-2">
           <div className=" p-5 w-[26rem] rounded-lg shadow-lg bg-[#18181B]">
             <div className="flex flex-col">
               <Confetti />
@@ -171,13 +175,13 @@ function Home() {
             background:
               "radial-gradient(circle, rgba(2,0,36,1) 32%, rgba(60,55,110,1) 100%, rgba(0,212,255,1) 100%)",
           }}
-          className="fourthScreen font-montserrat w-full h-full flex justify-center items-center"
+          className="fourthScreen font-montserrat w-full flex justify-center items-center"
         >
-          <motion.div className="h-screen w-full text-white font-montserrat flex justify-center items-center p-8">
+          <motion.div className="h-auto lg:h-screen w-full text-white font-montserrat flex justify-center items-center p-8">
             {/* Main Grid Container */}
-            <div className="mx-auto grid max-w-full grid-cols-5 gap-4">
+            <div className="mx-auto grid w-full max-w-full grid-cols-1 lg:grid-cols-5 gap-4">
               {/* Left Column (2 boxes stacked) */}
-              <div className="col-span-1 w-64 flex flex-col gap-4">
+              <div className="col-span-1 w-full lg:w-64 flex flex-col md:flex-row lg:flex-col  gap-4">
                 <motion.div
                   onClick={() => setProjectSidebar(true)}
                   whileInView={{
@@ -185,7 +189,7 @@ function Home() {
                     transition: { duration: 0.6 },
                   }}
                   whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-                  className="h-[20rem] cursor-pointer flex flex-col justify-between text-center rounded-lg bg-[#18181B] p-8 shadow-lg"
+                  className="h-[20rem] w-full cursor-pointer flex flex-col justify-between text-center rounded-lg bg-[#18181B] p-8 shadow-lg"
                 >
                   <motion.p
                     whileInView={motionSettings}
@@ -210,12 +214,10 @@ function Home() {
                 <motion.div
                   whileInView={{
                     y: [-50, 0],
-                    transition: {
-                      duration: 0.6,
-                    },
+                    transition: { duration: 0.6 },
                   }}
                   whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-                  className="h-[20rem] flex flex-col text-center justify-between rounded-lg bg-[#18181B] p-8 shadow-lg"
+                  className="h-[20rem] w-full lg:w-64  flex flex-col text-center justify-between rounded-lg bg-[#18181B] p-8 shadow-lg"
                 >
                   <motion.p
                     whileInView={motionSettings}
@@ -249,16 +251,14 @@ function Home() {
               </div>
 
               {/* Middle Column (3 rows, 2 boxes per row) */}
-              <div className="col-span-3 flex flex-col gap-4">
+              <div className="col-span-1 md:col-span-3 flex flex-col gap-4">
                 {/* Row 1 */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                   <motion.div
                     onClick={() => setShowProfilePanel(true)}
                     whileInView={{
                       y: [-50, 0],
-                      transition: {
-                        duration: 0.6,
-                      },
+                      transition: { duration: 0.6 },
                     }}
                     whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                     className="h-48 cursor-pointer bg-[#006fee] rounded-lg p-8 shadow-lg"
@@ -279,9 +279,7 @@ function Home() {
                   <motion.div
                     whileInView={{
                       y: [-50, 0],
-                      transition: {
-                        duration: 0.6,
-                      },
+                      transition: { duration: 0.6 },
                     }}
                     whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                     className="h-48 cursor-pointer bg-[#9353d3] rounded-lg p-8 shadow-lg"
@@ -306,59 +304,69 @@ function Home() {
                   <motion.div
                     whileInView={{
                       y: [-50, 0],
-                      transition: {
-                        duration: 0.6,
-                      },
+                      transition: { duration: 0.6 },
                     }}
-                    className="h-[15rem] flex justify-center rounded-lg bg-[#18181B] p-6 shadow-lg"
+                    className=" h-auto  lg:h-[15rem] flex justify-center rounded-lg bg-[#18181B] p-6 shadow-lg"
                   >
                     <motion.p
                       whileInView={motionSettings}
                       className="font-normal text-sm text-justify"
                     >
-                      I am a passionate Full Stack Developer with over 2 years of experience in both front-end and back-end development. I specialize in technologies like HTML, CSS, JavaScript, ReactJS, Node.js, and SQL/NoSQL databases. I build responsive, dynamic user interfaces with ReactJS and create scalable, efficient server-side applications using Node.js and Express.
-
-I have strong experience in developing RESTful APIs, implementing authentication, and working with cloud services (AWS) to ensure performance, security, and scalability. I’m dedicated to delivering high-performance applications while following best practices and maintaining clean, maintainable code.
-
-I thrive in collaborative environments, working closely with cross-functional teams to deliver user-centric solutions. With a focus on continuous learning and staying up to date with the latest technologies, I’m always eager to tackle new challenges in web development.
-
-
+                      I am a passionate Full Stack Developer with over 2 years
+                      of experience in both front-end and back-end development.
+                      I specialize in technologies like HTML, CSS, JavaScript,
+                      ReactJS, Node.js, and SQL/NoSQL databases. I build
+                      responsive, dynamic user interfaces with ReactJS and
+                      create scalable, efficient server-side applications using
+                      Node.js and Express. I have strong experience in
+                      developing RESTful APIs, implementing authentication, and
+                      working with cloud services (AWS) to ensure performance,
+                      security, and scalability. I’m dedicated to delivering
+                      high-performance applications while following best
+                      practices and maintaining clean, maintainable code. I
+                      thrive in collaborative environments, working closely with
+                      cross-functional teams to deliver user-centric solutions.
+                      With a focus on continuous learning and staying up to date
+                      with the latest technologies, I’m always eager to tackle
+                      new challenges in web development.
                     </motion.p>
                   </motion.div>
                 </div>
 
                 {/* Row 3 */}
-                <div className="grid grid-cols-2 gap-4">
-                  <motion.div
-                    whileInView={{
-                      y: [-50, 0],
-                      transition: {
-                        duration: 0.6,
-                      },
-                    }}
-                    whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-                    className="h-48 cursor-pointer bg-[#f5a524] rounded-lg p-8 shadow-lg"
-                  >
-                    <motion.p
-                      whileInView={motionSettings}
-                      className="font-semibold text-2xl"
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <a href={resume} target="_blank" rel="noreferrer">
+                    <motion.div
+                      whileInView={{
+                        y: [-50, 0],
+                        transition: { duration: 0.6 },
+                      }}
+                      whileHover={{
+                        scale: 1.05,
+                        transition: { duration: 0.3 },
+                      }}
+                      className="h-48 cursor-pointer bg-[#f5a524] rounded-lg p-8 shadow-lg"
                     >
-                      Experience
-                    </motion.p>
-                    <motion.p
-                      whileInView={motionSettings}
-                      className="text-center font-semibold text-7xl mt-2"
-                    >
-                      2y+
-                    </motion.p>
-                  </motion.div>
+                      <motion.p
+                        whileInView={motionSettings}
+                        className="font-semibold text-2xl"
+                      >
+                        Experience
+                      </motion.p>
+
+                      <motion.p
+                        whileInView={motionSettings}
+                        className="text-center font-semibold text-7xl mt-2"
+                      >
+                        2y+
+                      </motion.p>
+                    </motion.div>
+                  </a>
                   <motion.div
                     onClick={() => setskillsPanel(true)}
                     whileInView={{
                       y: [-50, 0],
-                      transition: {
-                        duration: 0.6,
-                      },
+                      transition: { duration: 0.6 },
                     }}
                     whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                     className="h-48 cursor-pointer bg-[#17c964] rounded-lg p-8 shadow-lg"
@@ -373,24 +381,22 @@ I thrive in collaborative environments, working closely with cross-functional te
                       whileInView={motionSettings}
                       className="text-center font-semibold text-7xl mt-2"
                     >
-                      13+
+                      14+
                     </motion.p>
                   </motion.div>
                 </div>
               </div>
 
               {/* Right Column (2 boxes stacked) */}
-              <div className="col-span-1 w-64 flex flex-col gap-4">
+              <div className="col-span-1 w-full lg::w-64 flex flex-col md:flex-row lg:flex-col gap-4">
                 {/* Testimonials Section */}
                 <motion.div
                   whileInView={{
                     y: [-50, 0],
-                    transition: {
-                      duration: 0.6,
-                    },
+                    transition: { duration: 0.6 },
                   }}
                   whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-                  className="h-[20rem] flex flex-col text-center justify-between rounded-lg bg-[#18181B] p-8 shadow-lg"
+                  className="h-[20rem] w-full flex flex-col text-center justify-between rounded-lg bg-[#18181B] p-8 shadow-lg"
                 >
                   <motion.p
                     whileInView={motionSettings}
@@ -420,14 +426,11 @@ I thrive in collaborative environments, working closely with cross-functional te
                 <motion.div
                   whileInView={{
                     y: [-50, 0],
-                    transition: {
-                      duration: 0.6,
-                    },
+                    transition: { duration: 0.6 },
                   }}
-                  className="h-[20rem] flex flex-col justify-between text-center rounded-lg bg-[#18181B] p-8 shadow-lg"
+                  className="h-[20rem] w-full flex flex-col justify-between text-center rounded-lg bg-[#18181B] p-8 shadow-lg"
                 >
                   <motion.p
-                  
                     whileInView={motionSettings}
                     className="font-semibold text-lg"
                   >
@@ -435,9 +438,9 @@ I thrive in collaborative environments, working closely with cross-functional te
                   </motion.p>
                   <div className="flex justify-center gap-4">
                     <motion.img
-                    onClick={() =>
-                      window.open('https://github.com/DevHimanshu63')
-                    }
+                      onClick={() =>
+                        window.open("https://github.com/DevHimanshu63")
+                      }
                       whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
                       className="w-24 cursor-pointer"
                       src="https://img.icons8.com/ios11/512/FFFFFF/github.png"
@@ -450,7 +453,9 @@ I thrive in collaborative environments, working closely with cross-functional te
                         transition: { duration: 0.6 },
                       }}
                       onClick={() =>
-                        window.open('https://www.linkedin.com/in/himanshu-chauhan-bb6a671b2/')
+                        window.open(
+                          "https://www.linkedin.com/in/himanshu-chauhan-bb6a671b2/"
+                        )
                       }
                       className="w-24 cursor-pointer rounded-lg"
                       src="https://static.vecteezy.com/system/resources/previews/016/716/470/non_2x/linkedin-icon-free-png.png"
@@ -464,12 +469,20 @@ I thrive in collaborative environments, working closely with cross-functional te
                         rotate: 90,
                         transition: { duration: 0.6 },
                       }}
-                      onClick={() => window.open("https://wa.me/6307279736", "_blank")}
+                      onClick={() =>
+                        window.open("https://wa.me/6307279736", "_blank")
+                      }
                       className="w-24 cursor-pointer"
                       src="https://tadashiamano.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fwhatsapp.png&w=384&q=75"
                       alt="whatsapp"
                     />
                     <motion.img
+                      onClick={() =>
+                        window.open(
+                          "https://mail.google.com/mail/?view=cm&fs=1&to=himanshuchauhan.psnl@gmail.com",
+                          "_blank"
+                        )
+                      }
                       whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
                       className="w-24 cursor-pointer"
                       src="https://tadashiamano.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fgoogle.png&w=384&q=75"
@@ -491,7 +504,7 @@ I thrive in collaborative environments, working closely with cross-functional te
               transform: projectSidebar ? "translateX(0)" : "translateX(-100%)",
               opacity: projectSidebar ? "1" : "0",
             }}
-            className="sidebar overflow-y-auto max-h-screen z-11 w-[26rem] h-full bg-[#18181B] rounded-xl transition-all duration-500 ease-in-out"
+            className="sidebar overflow-y-auto max-h-screen z-11 lg:w-[26rem] h-full bg-[#18181B] rounded-xl transition-all duration-500 ease-in-out"
           >
             <div className="flex p-5 text-white justify-between">
               <h3 className="font-semibold text-xl">Recent Project</h3>
@@ -631,7 +644,7 @@ I thrive in collaborative environments, working closely with cross-functional te
               <motion.div
                 variants={rightPanelVariants}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="h-full w-1/2 bg-gray-800 p-8 cursor-pointer font-montserrat"
+                className="h-full w-1/2 bg-gray-800 md:p-8 cursor-pointer font-montserrat"
               >
                 <div className="flex justify-end cursor-pointer">
                   <button
@@ -651,25 +664,25 @@ I thrive in collaborative environments, working closely with cross-functional te
                   }}
                   className="h-full flex flex-col justify-center items-center text-center"
                 >
-                  <h2 className="text-3xl font-bold text-white mb-2">
+                  <h2 className="md:text-3xl text-lg font-bold text-white mb-2">
                     Himanshu Singh
                   </h2>
-                  <p className="text-gray-600 text-2xl">
+                  <p className="text-gray-600 text-sm md:text-2xl">
                     MOLOG || Pepcoding || Future Gurukuls
                   </p>
 
                   <div className="space-y-4 text-gray-300 mt-10">
-                    <div className="flex items-center space-x-[6rem]">
+                    <div className="flex items-center space-x-[2rem] lg:space-x-[6rem]">
                       <CiLocationOn className="w-6 h-6 text-blue-400" />
                       <span>New Delhi, India</span>
                     </div>
 
-                    <div className="flex items-center space-x-[6rem]">
+                    <div className="flex items-center space-x-[2rem] lg:space-x-[6rem]">
                       <SlCalender className="w-6 h-6 text-purple-400" />
                       <span>06th August, 2002</span>
                     </div>
 
-                    <div className="flex items-center space-x-[6rem]">
+                    <div className="flex items-center space-x-[2rem] lg:space-x-[6rem]">
                       <FaGithub className="w-6 h-6 text-gray-100" />
                       <a
                         href="https://github.com/DevHimanshu63"
@@ -680,7 +693,7 @@ I thrive in collaborative environments, working closely with cross-functional te
                         DevHimanshu63 <FaExternalLinkAlt />
                       </a>
                     </div>
-                    <div className="flex items-center space-x-[6rem]">
+                    <div className="flex items-center space-x-[2rem] lg:space-x-[6rem]">
                       <CiLinkedin className="w-6 h-6 text-blue-400" />
                       <a
                         href="https://github.com/DevHimanshu63"
@@ -709,16 +722,17 @@ I thrive in collaborative environments, working closely with cross-functional te
                 duration: 1,
               },
             }}
-            className="w-[40%] h-[60%] bg-gray-800 p-8 rounded-lg"
+            className="w-full h-full lg:w-[40%] lg:h-[70%] bg-gray-800 p-8 rounded-lg"
           >
-            <motion.div 
-            whileInView={{
-              y: [-20, 0],
-              transition: {
-                duration: 1,
-              },
-            }}
-            className="flex justify-between items-center">
+            <motion.div
+              whileInView={{
+                y: [-20, 0],
+                transition: {
+                  duration: 1,
+                },
+              }}
+              className="flex justify-between items-center"
+            >
               <h2 className="text-white text-2xl ">Skill set</h2>
               <button
                 onClick={() => setskillsPanel(false)}
@@ -728,33 +742,25 @@ I thrive in collaborative environments, working closely with cross-functional te
               </button>
             </motion.div>
 
-            <div className="skills-list mt-5 w-full h-full p-5">
-              <div className="w-full h-full p-2 flex flex-wrap gap-5">
-                {skills.map((skill, index) => (
-                  <motion.div
+            <div className="skills-list mt-5 w-full h-full p-3 grid grid-cols-3 md:grid-cols-4 gap-5">
+              {skills.map((skill, index) => (
+                <motion.div
                   whileInView={{
                     y: [-40, 0],
                     transition: {
                       duration: 1,
                     },
                   }}
-                    key={index}
-                    className="flex flex-col items-center relative"
-                  >
-                    <p className="bg-[#9353d3] text-white p-1 rounded-full absolute -top-2 -right-2 text-xs font-bold">
-                      {skill.exp}
-                    </p>
-                    <img
-                      className="w-12 h-12"
-                      src={skill.img}
-                      alt={skill.name}
-                    />
-                    <span className="text-white text-lg mt-2">
-                      {skill.name}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
+                  key={index}
+                  className="flex flex-col items-center relative"
+                >
+                  <p className="bg-[#9353d3] text-white p-1 rounded-full absolute -top-2 -right-2 text-xs font-bold">
+                    {skill.exp}
+                  </p>
+                  <img className="w-12 h-12" src={skill.img} alt={skill.name} />
+                  <span className="text-white text-lg mt-2">{skill.name}</span>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>

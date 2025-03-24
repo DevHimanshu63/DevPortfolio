@@ -7,7 +7,7 @@ import ProfilePanel from './components/ProfilePanel'
 function App() {
 
   return (
-  <div className='w-full h-screen'>
+  <div className='h-screen overflow-y-scroll' >
     <Home/>
     {/* <ProfilePanel/> */}
   </div>
